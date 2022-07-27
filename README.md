@@ -13,3 +13,8 @@ Born out of frustration with github's issue handling, this plugin allows you to 
 - Click the gear icon in the logseq github plugin
 - Click open settings
 - Customize the options
+
+
+
+
+https://correctroad.gitbook.io/logseq-plugins-in-action/chapter-3/publish-your-plugins-to-markplace
