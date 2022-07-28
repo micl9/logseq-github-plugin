@@ -41,6 +41,7 @@ function produceContent(result: Issue[]) {
 }
 
 
+//sibling true 是 同节点
 async function fetchGiteeIssues() {
     let result = await findAllIssuesByState({
         access_token: <string>logseq.settings!.AccessToken,
@@ -50,9 +51,10 @@ async function fetchGiteeIssues() {
     let page = await logseq.Editor.getPage(targetPageName()) ?? await logseq.Editor.createPage(targetPageName(), {}, {redirect: true}) as PageEntity;
     let blockEntities = await logseq.Editor.getPageBlocksTree(targetPageName());
     let targetBlock = blockEntities[0];
-    console.log(targetBlock)
+    console.log("1：",targetBlock)
     targetBlock = await logseq.Editor.insertBlock(targetBlock.uuid, '🚀 Fetching Gitee Issues ...', {before: true}) as BlockEntity;
     await logseq.Editor.insertBatchBlock(targetBlock.uuid, blockContents, {sibling: false})
+    console.log("2: ",targetBlock)
     await logseq.Editor.updateBlock(targetBlock.uuid, `## 🔖 r/logseq - Genius-Pros`);
 }
 
